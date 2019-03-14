@@ -28,7 +28,7 @@ public class Consumer {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(new String[]{"META-INF/spring/dubbo-demo-consumer.xml"});
         context.start();
         DemoService demoService = (DemoService) context.getBean("demoService"); // get remote service proxy
-
+        int i = 0;
         while (true) {
             try {
 //                try {
@@ -46,10 +46,10 @@ public class Consumer {
 //                ((EchoService) demoService).$echo("test4u");
 //                ((EchoService) demoService).$echo("test4u");
 
-                demoService.sayHello("world");
+                demoService.sayHello("world" + i++);
 //                ProtocolConfig.destroyAll();
 
-                Thread.sleep(10000000);
+                Thread.sleep(5000);
 //                demoService.say02();
 //                demoService.say03();
 //                demoService.say04();
